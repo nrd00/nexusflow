@@ -1,7 +1,8 @@
 import { MenuItems } from "./MenuItems";
-import { IoMdSettings } from "react-icons/io";
 import { NavLink } from "react-router";
 import { BsBarChartFill } from "react-icons/bs";
+import { CiLogin } from "react-icons/ci";
+//<CiLogout />
 
 const Sidebar = ({ isCollapsed }) => {
   return (
@@ -51,11 +52,11 @@ const Sidebar = ({ isCollapsed }) => {
 
       <NavLink
         className="flex gap-x-4 px-5 py-1 hover:bg-[#5B62FC] rounded cursor-pointer"
-        to={"settings"}
+        to={"login"}
       >
-        <IoMdSettings className="text-white text-2xl" />
+        <CiLogin className="text-white text-2xl" />
         {!isCollapsed && (
-          <span className="title text-md text-white">Settings</span>
+          <span className="title text-md text-white">Login</span>
         )}
       </NavLink>
     </aside>

@@ -1,11 +1,11 @@
-
+import Greeting from "../Components/Dashboard/Greeting";
 
 const Dashboard = () => {
-    return (
-        <div>
-            Dashboard
-        </div>
-    );
+  return (
+    <>
+      <Greeting />
+    </>
+  );
 };
 
 export default Dashboard;

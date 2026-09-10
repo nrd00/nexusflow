@@ -3,6 +3,10 @@ import "./App.css";
 import Navigation from "./Components/Navigation";
 import Sidebar from "./Components/Sidebar";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
+import Dashboard from "./Pages/Dashboard";
+import Stocks from "./Pages/Stocks";
+import WishList from "./Pages/WishList";
+import Portfolio from "./Pages/Portfolio";
 
 function App() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -19,19 +23,23 @@ function App() {
             element={
               <div className="flex">
                 <Sidebar isCollapsed={isCollapsed} />
-                <div className="container">
+                <div className="w-full">
                   <Navigation toggleSidebar={toggleSidebar} />
-                  <Outlet />
+                  <main className="bg-[#F8FAFE] py-5">
+                    <div className="container">
+                      <Outlet />
+                    </div>
+                  </main>
                 </div>
               </div>
             }
           >
             <Route index element={<div>Nexusflow Home</div>} />
-            <Route path="dashboard" element={<div>Dashboard</div>} />
-            <Route path="stocks" element={<div>Stocks</div>} />
-            <Route path="wishlist" element={<div>Wishlist</div>} />
-            <Route path="portfolio" element={<div>Portfolio</div>} />
-            <Route path="settings" element={<div>Settings</div>} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="stocks" element={<Stocks />} />
+            <Route path="wishlist" element={<WishList />} />
+            <Route path="portfolio" element={<Portfolio />} />
+            <Route path="login" element={<div>Login</div>} />
           </Route>
         </Routes>
       </BrowserRouter>
