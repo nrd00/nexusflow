@@ -4,8 +4,8 @@ import { IoNotifications } from "react-icons/io5";
 const Navigation = ({ toggleSidebar }) => {
   return (
     <>
-      <div className="container">
-        <nav className="flex justify-between items-center py-2 w-full">
+      <div className="container border-b border-b-[#E4E4EA]">
+        <nav className="flex justify-between items-center py-2 ">
           <CiMenuFries
             className="text-3xl font-bold cursor-pointer"
             onClick={toggleSidebar}

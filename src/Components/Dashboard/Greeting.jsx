@@ -10,9 +10,9 @@ const Greeting = () => {
           <p className="font-sm text-[#90919C]">Welcome back, {profileName}</p>
         </div>
         <div className="market-status">
-          <p className="flex items-center">
+          <p className="flex items-center text-sm font-bold">
             Market status:{" "}
-            <span className="text-[#15A15F] flex gap-x-2 items-center text-sm">
+            <span className="text-[#15A15F] flex gap-x-2 items-center font-normal">
               <GoDotFill /> Market Open
             </span>
           </p>
