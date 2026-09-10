@@ -1,13 +1,22 @@
 import { MenuItems } from "./MenuItems";
 import { NavLink } from "react-router";
 import { BsBarChartFill } from "react-icons/bs";
-import { CiLogin } from "react-icons/ci";
-//<CiLogout />
+import { CiLogin, CiLogout } from "react-icons/ci";
+import { useState } from "react";
+
 
 const Sidebar = ({ isCollapsed }) => {
+  const [isLogged, setIsLogged] = useState(false);
+
+  const handleLogOut = () => {
+    setIsLogged(!isLogged);
+  }
+
+
+
   return (
     <aside
-      className={`sidebar ${isCollapsed ? "collapsed" : ""} bg-[#040E28] px-5 py-5 h-screen flex flex-col justify-between`}
+      className={`sidebar ${isCollapsed ? "collapsed" : ""} bg-[#040E28] px-5 py-5 h-screen flex flex-col justify-between fixed ${isCollapsed ? "w-26" : "w-64"}`}
     >
       <ul className="flex flex-col gap-y-2">
         <NavLink
@@ -30,7 +39,7 @@ const Sidebar = ({ isCollapsed }) => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `flex items-center gap-x-4 px-5 py-2 rounded cursor-pointer ${
+                  `flex hover:bg-[#5B62FC] items-center gap-x-4 px-5 py-2 rounded cursor-pointer ${
                     isActive
                       ? "bg-[#e0e7ff] text-[#4f46e5] font-semibold"
                       : "text-white"
@@ -54,9 +63,12 @@ const Sidebar = ({ isCollapsed }) => {
         className="flex gap-x-4 px-5 py-1 hover:bg-[#5B62FC] rounded cursor-pointer"
         to={"login"}
       >
-        <CiLogin className="text-white text-2xl" />
+        {isLogged ? <CiLogout className="text-white text-2xl" /> : 
+        <CiLogin className="text-white text-2xl" />}
         {!isCollapsed && (
-          <span className="title text-md text-white">Login</span>
+          <span className="title text-md text-white">
+            {isLogged ? "Logout" : "Login"}
+          </span>
         )}
       </NavLink>
     </aside>

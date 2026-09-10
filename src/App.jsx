@@ -7,6 +7,7 @@ import Dashboard from "./Pages/Dashboard";
 import Stocks from "./Pages/Stocks";
 import WishList from "./Pages/WishList";
 import Portfolio from "./Pages/Portfolio";
+import AuthForm from "./Components/AuthForm";
 
 function App() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -21,17 +22,32 @@ function App() {
           <Route
             path="/"
             element={
-              <div className="flex">
-                <Sidebar isCollapsed={isCollapsed} />
-                <div className="w-full">
-                  <Navigation toggleSidebar={toggleSidebar} />
-                  <main className="bg-[#F8FAFE] py-5">
-                    <div className="container">
-                      <Outlet />
-                    </div>
-                  </main>
-                </div>
-              </div>
+              <div className="flex min-h-screen">
+  {/* Sidebar space */}
+  <div
+    className={`
+      shrink-0
+      transition-all
+      duration-300
+      ${isCollapsed ? "w-26" : "w-64"}
+    `}
+  />
+
+  
+  <Sidebar isCollapsed={isCollapsed} />
+
+ 
+  <div className="min-w-0 flex-1">
+    <Navigation toggleSidebar={toggleSidebar} />
+
+    <main className="bg-[#F8FAFE] py-5">
+      <div className="container">
+        <Outlet />
+      </div>
+    </main>
+  </div>
+</div>
+             
             }
           >
             <Route index element={<div>Nexusflow Home</div>} />
@@ -39,7 +55,9 @@ function App() {
             <Route path="stocks" element={<Stocks />} />
             <Route path="wishlist" element={<WishList />} />
             <Route path="portfolio" element={<Portfolio />} />
-            <Route path="login" element={<div>Login</div>} />
+            <Route path="signup" element={<AuthForm mode="signup"/>} />
+            <Route path="/login" element={<AuthForm mode="login" />} />
+            <Route path="/reset-password" element={<AuthForm mode="reset" />} />
           </Route>
         </Routes>
       </BrowserRouter>
