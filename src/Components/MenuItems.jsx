@@ -7,7 +7,7 @@ export const MenuItems = [
     id: "dashboard",
     title: "Dashboard",
     icon: RxDashboard,
-    path: "/dashboard",
+    path: "/",
   },
   { id: "stocks", title: "Stocks", icon: HiTrendingUp, path: "/stocks" },
   { id: "wishlist", title: "Wishlist", icon: RxHeart, path: "/wishlist" },

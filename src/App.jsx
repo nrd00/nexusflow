@@ -48,8 +48,8 @@ function App() {
               </div>
             }
           >
-            <Route index element={<div>Nexusflow Home</div>} />
-            <Route path="dashboard" element={<Dashboard />} />
+            
+            <Route path="/" element={<Dashboard />} />
             <Route path="stocks" element={<Stocks />} />
             <Route path="stocks/:symbol" element={<StockDetails />} />
             <Route path="wishlist" element={<WishList />} />

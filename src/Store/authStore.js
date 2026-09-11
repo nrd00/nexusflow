@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const useAuthStore = create((set) => ({
-  isLogged: true,
+  isLogged: false,
 
   login: () => {
     set({ isLogged: true });
