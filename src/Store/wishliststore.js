@@ -7,7 +7,7 @@ const useWishlistStore = create(
       wishlist: [],
 
       addToWishlist: (stock) => {
-        const { wishlist } = get();
+        const { wishlist } = get(); //const wishlist = get().wishlist;
 
         const alreadyExists = wishlist.some(
           (item) => item.symbol === stock.symbol

@@ -2,15 +2,13 @@ import { MenuItems } from "./MenuItems";
 import { NavLink } from "react-router";
 import { BsBarChartFill } from "react-icons/bs";
 import { CiLogin, CiLogout } from "react-icons/ci";
-import { useState } from "react";
+import useAuthStore from "../Store/authStore";
 
 
 const Sidebar = ({ isCollapsed }) => {
-  const [isLogged, setIsLogged] = useState(false);
+  const {isLogged} = useAuthStore();
 
-  const handleLogOut = () => {
-    setIsLogged(!isLogged);
-  }
+   
 
 
 

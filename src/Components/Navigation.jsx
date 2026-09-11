@@ -1,7 +1,10 @@
 import { CiMenuFries } from "react-icons/ci";
 import { IoNotifications } from "react-icons/io5";
+import useAuthStore from "../Store/authStore";
+import { Settings } from "lucide-react";
 
 const Navigation = ({ toggleSidebar }) => {
+  const {isLogged} = useAuthStore();
   return (
     <>
       <div className="container border-b border-b-[#E4E4EA]">
@@ -39,8 +42,11 @@ const Navigation = ({ toggleSidebar }) => {
             </div>
           </div>
 
-          <div className="profile">
-            <IoNotifications className="text-3xl font-bold" />
+          <div className="profile flex gap-x-2.5 items-center">
+            <IoNotifications className="text-2xl font-bold" />
+            {isLogged && (
+                  <Settings className="cursor-pointer"/>
+                )}
           </div>
         </nav>
       </div>
